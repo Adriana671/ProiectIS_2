@@ -28,9 +28,6 @@ public class User {
 	@Column 
 	private String adresa;
 	
-	@Column 
-	private int idComanda;
-	
 	@Column
 	private String rol;
 	

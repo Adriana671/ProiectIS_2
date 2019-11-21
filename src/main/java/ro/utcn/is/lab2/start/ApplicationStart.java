@@ -20,12 +20,10 @@ public class ApplicationStart {
 		  user.setName("Jimmy");
 		  ur.insert(user);
 		  
-		  ur.delete(3);
-		  
-		  ComandaRepo cr = new ComandaRepo();
+/*		  ComandaRepo cr = new ComandaRepo();
 		  Comanda com = new Comanda();
 		  com.setNrProduse(5);
-		  cr.insert(com);
+		  cr.insert(com);*/
 
 	}
 	
