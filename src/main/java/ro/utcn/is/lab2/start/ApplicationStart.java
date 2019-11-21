@@ -9,8 +9,6 @@ import ro.utcn.is.lab2.repository.ComandaRepo;
 import ro.utcn.is.lab2.repository.UserRepo;
 
 public class ApplicationStart {
-	static Connection crunchifyConn = null;
-	static PreparedStatement crunchifyPrepareStat = null;
 
 	public static void main(String[] args) {
 
@@ -19,7 +17,6 @@ public class ApplicationStart {
 		 */
 		  UserRepo ur = new UserRepo(); 
 		  User user = new User(); 
-		  System.out.println("id user " + user.getId());
 		  user.setName("Jimmy");
 		  ur.insert(user);
 		  
