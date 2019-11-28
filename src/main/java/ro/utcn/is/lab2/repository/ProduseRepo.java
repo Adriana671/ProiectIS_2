@@ -28,14 +28,23 @@ public class ProduseRepo {
 		return prod;
 	}
 	
-	public void delete(int id)
+	public void deleteProdus(Produse prod)
 	{
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		Produse prod = entityManager.find(Produse.class, id);
+		//Produse prod = entityManager.find(Produse.class, id);
 		entityManager.getTransaction().begin();
 		entityManager.remove(prod);
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		
+	}
+	
+	public void updateProdus(Produse prod)
+	{
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+		entityManager.merge(prod);
+		entityManager.getTransaction().commit();
+		entityManager.close();
 	}
 }
