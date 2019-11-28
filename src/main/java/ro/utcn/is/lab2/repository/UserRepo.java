@@ -54,14 +54,24 @@ public class UserRepo {
 		
 	}
 	
-	public void delete(int id)
+	public void delete(User user)
 	{
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		User us1 = entityManager.find(User.class, id);
 		/// EXCEPTIE DE PRINS DACA NU SE GASESTE USERU-UL, 
 		/// IN NIVELUL URAMTOR --> SERVICE
 		entityManager.getTransaction().begin();
-		entityManager.remove(us1);
+		entityManager.remove(user);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		
+	}
+	
+	public void updateUser(User user)
+	{
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+		entityManager.merge(user);
 		entityManager.getTransaction().commit();
 		entityManager.close();
 		
