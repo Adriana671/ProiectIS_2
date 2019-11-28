@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import ro.utcn.is.lab2.entity.Comanda;
+import ro.utcn.is.lab2.entity.Produse;
 
 public class ComandaRepo {
 	
