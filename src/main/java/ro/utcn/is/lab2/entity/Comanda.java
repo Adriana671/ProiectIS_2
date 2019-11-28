@@ -31,6 +31,10 @@ public class Comanda {
 	@Column
 	private Date data;
 	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+	
 
 	public int getId() {
 		return id;
