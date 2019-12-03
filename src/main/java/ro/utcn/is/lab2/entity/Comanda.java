@@ -1,7 +1,7 @@
 package ro.utcn.is.lab2.entity;
 
 import java.util.Date;
-
+import java.util.Set;
 import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -35,7 +35,9 @@ public class Comanda {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-
+	@ManyToMany(mappedBy="comenzi")
+	private Set<Produse> produse;
+	
 	public int getId() {
 		return id;
 	}
@@ -75,8 +77,21 @@ public class Comanda {
 	public void setData(Date data) {
 		this.data = data;
 	}
-	
-	
-	
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Set<Produse> getProduse() {
+		return produse;
+	}
+
+	public void setProduse(Set<Produse> produse) {
+		this.produse = produse;
+	}
+	
 }

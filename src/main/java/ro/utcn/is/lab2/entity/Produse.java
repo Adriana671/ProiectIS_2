@@ -1,10 +1,14 @@
 package ro.utcn.is.lab2.entity;
 
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Produse {
@@ -28,6 +32,13 @@ public class Produse {
 	
 	@Column
 	private float pretProdus;
+	
+	@ManyToMany
+	@JoinTable(
+	   name="produs_comandat",
+	   joinColumns=@JoinColumn(name="produs_id", referencedColumnName="id"),
+	   inverseJoinColumns=@JoinColumn(name="comanda_id", referencedColumnName="id"))
+	private Set<Comanda> comenzi;
 
 	public int getId() {
 		return id;
@@ -68,5 +79,14 @@ public class Produse {
 	public void setPretProdus(float pretProdus) {
 		this.pretProdus = pretProdus;
 	}
+
+	public Set<Comanda> getComenzi() {
+		return comenzi;
+	}
+
+	public void setComenzi(Set<Comanda> comenzi) {
+		this.comenzi = comenzi;
+	}
+
 	
 }
