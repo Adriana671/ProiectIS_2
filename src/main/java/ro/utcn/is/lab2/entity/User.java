@@ -43,6 +43,42 @@ public class User {
 	
 	
 	
+	public int getVarsta() {
+		return varsta;
+	}
+
+	public void setVarsta(int varsta) {
+		this.varsta = varsta;
+	}
+
+	public String getAdresa() {
+		return adresa;
+	}
+
+	public void setAdresa(String adresa) {
+		this.adresa = adresa;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
+	public List<Comanda> getComenzi() {
+		return comenzi;
+	}
+
+	public void setComenzi(List<Comanda> comenzi) {
+		this.comenzi = comenzi;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public User() {
 		
 	}
