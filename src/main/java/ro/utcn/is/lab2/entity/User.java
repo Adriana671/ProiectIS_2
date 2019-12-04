@@ -1,12 +1,14 @@
 package ro.utcn.is.lab2.entity;
 
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * Fiecare entitate (care reprezinta un tabel in baza de date) trebuie sa aiba obligatoriu:
@@ -16,6 +18,7 @@ import javax.persistence.OneToMany;
  * 		3. "@Column" - celelalte coloane din tabel.
  */
 @Entity
+@Table(name = "user")
 public class User {
 
 	/**

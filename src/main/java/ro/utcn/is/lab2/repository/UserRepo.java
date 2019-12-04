@@ -1,6 +1,9 @@
 package ro.utcn.is.lab2.repository;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -50,8 +53,6 @@ public class UserRepo {
 		
 		return us1;
 		
-		
-		
 	}
 	
 	public void delete(User user)
@@ -63,6 +64,22 @@ public class UserRepo {
 		entityManager.remove(user);
 		entityManager.getTransaction().commit();
 		entityManager.close();
+		
+	}
+	
+	List<User> users = new ArrayList<User>();
+	
+	public List<User> findAll()
+	{
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+		users = entityManager.createQuery("from User").getResultList();
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		
+		return users;
 		
 	}
 	
