@@ -1,9 +1,12 @@
 package ro.utcn.is.lab2.service;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Validatori.EmailIncorect;
+import Validatori.UserInexistent;
 import Validatori.VarstaPreaMica;
 import ro.utcn.is.lab2.entity.User;
 import ro.utcn.is.lab2.repository.UserRepo;
@@ -41,7 +44,43 @@ public class UserService {
 
 			
 		}
+		
 
+	}
+	
+	public void deleteUser(User user)
+	{
+		List us = userRepo.findAll();
+		try {
+			if(us.contains(user))
+				{
+					System.out.println("se sterge user");
+					userRepo.delete(user);
+				}
+				else
+				{
+					System.out.println("nu exista user");
+
+					throw new UserInexistent("Userul nu mai exista!");
+				}
+		}catch (UserInexistent i)
+		{
+			JOptionPane.showMessageDialog(new JPanel(), "Userul nu mai exista");
+		}
+		
+		
+	}
+	
+	/////findById de implementat inca 
+	
+	public List<User> findAll()
+	{		
+		return userRepo.findAll();
+	}
+	
+	public void updateUser(User us)
+	{
+		userRepo.updateUser(us);
 	}
 
 }

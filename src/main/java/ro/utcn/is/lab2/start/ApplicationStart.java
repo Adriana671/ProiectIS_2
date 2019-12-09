@@ -1,17 +1,10 @@
  package ro.utcn.is.lab2.start;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ro.utcn.is.lab2.entity.User;
-
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-
-import ro.utcn.is.lab2.entity.Comanda;
-import ro.utcn.is.lab2.entity.Produse;
-import ro.utcn.is.lab2.entity.User;
-import ro.utcn.is.lab2.repository.ComandaRepo;
-import ro.utcn.is.lab2.repository.ProduseRepo;
-
 import ro.utcn.is.lab2.repository.UserRepo;
 import ro.utcn.is.lab2.service.UserService;
 
@@ -27,21 +20,27 @@ public class ApplicationStart {
 		  user.setName("Jimmy");
 		  //ur.insert(user);
 		  
-		  ComandaRepo cr = new ComandaRepo();
-		  Comanda com = new Comanda();
+		  //ComandaRepo cr = new ComandaRepo();
+		  //Comanda com = new Comanda();
 
-		  com.setNrProduse(5);
-		  cr.insert(com);
+		  //com.setNrProduse(5);
+		  //cr.insert(com);
 		  
-		UserService us = new UserService();
-		user.setVarsta(12);
+		  UserService us = new UserService();
+		  user.setVarsta(20);
+		List<User> nn = new ArrayList<>();
+		nn = us.findAll();
+		for(User u : nn)
+		{
+			System.out.println(u.getName() + " " + u.getId());
+		}
 		
-		us.insertUser(user);
+		
 
 
 
-		  ProduseRepo pr = new ProduseRepo();
-		  Produse prod = new Produse();
+		  //ProduseRepo pr = new ProduseRepo();
+		  //Produse prod = new Produse();
 	}
 	
 }
