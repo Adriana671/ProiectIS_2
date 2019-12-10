@@ -1,8 +1,12 @@
 package ro.utcn.is.lab2.repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 import ro.utcn.is.lab2.entity.Produse;
 
 public class ProduseRepo {
@@ -16,6 +20,20 @@ public class ProduseRepo {
 		entityManager.merge(produs);
 		entityManager.getTransaction().commit();
 		entityManager.close();
+	}
+	
+	List<Produse> listaProduse = new ArrayList<Produse>();
+	
+	
+	public List<Produse> findAll()
+	{
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+		listaProduse= entityManager.createQuery("from Produse").getResultList();
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		return listaProduse;
 	}
 	
 	public Produse findById(int id)

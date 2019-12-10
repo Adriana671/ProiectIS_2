@@ -1,11 +1,13 @@
 package ro.utcn.is.lab2.repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import ro.utcn.is.lab2.entity.Comanda;
-import ro.utcn.is.lab2.entity.Produse;
 
 public class ComandaRepo {
 	
@@ -20,6 +22,18 @@ public class ComandaRepo {
 		entityManager.getTransaction().commit();
 		entityManager.close();
 		
+	}
+	List<Comanda> listaComenzi = new ArrayList<Comanda>();
+	
+	public List<Comanda> findAll()
+	{
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+		listaComenzi= entityManager.createQuery("from Comanda").getResultList();
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		return listaComenzi;
 	}
 	
 	public Comanda findById(int id)

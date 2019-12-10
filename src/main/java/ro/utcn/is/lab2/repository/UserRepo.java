@@ -74,13 +74,11 @@ public class UserRepo {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 		entityManager.getTransaction().begin();
-
 		users = entityManager.createQuery("from User").getResultList();
 		entityManager.getTransaction().commit();
 		entityManager.close();
 		
-		return users;
-		
+		return users;	
 	}
 	
 	public void updateUser(User user)
