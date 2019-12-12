@@ -28,16 +28,12 @@ public class ApplicationStart {
 		  
 		  UserService us = new UserService();
 		  user.setVarsta(20);
-		List<User> nn = new ArrayList<>();
-		nn = us.findAll();
-		for(User u : nn)
-		{
-			System.out.println(u.getName() + " " + u.getId());
-		}
-		
-		
-
-
+		  List<User> nn = new ArrayList<>();
+	      nn = us.findAll();
+		  for(User u : nn)
+			{
+				System.out.println(u.getName() + " " + u.getId());
+			}
 
 		  //ProduseRepo pr = new ProduseRepo();
 		  //Produse prod = new Produse();
