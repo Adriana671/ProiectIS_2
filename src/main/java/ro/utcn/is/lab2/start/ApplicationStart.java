@@ -1,14 +1,9 @@
  package ro.utcn.is.lab2.start;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import ro.utcn.is.lab2.entity.Produse;
+import gui.ViewClass;
 import ro.utcn.is.lab2.entity.User;
 import ro.utcn.is.lab2.repository.UserRepo;
-import ro.utcn.is.lab2.service.ProduseService;
-import ro.utcn.is.lab2.service.UserService;
 
 public class ApplicationStart {
 
@@ -21,6 +16,9 @@ public class ApplicationStart {
 		  User user = new User(); 
 		  user.setName("Jimmy");
 		  //ur.insert(user);
+		  
+		  new ViewClass();
+		  
 
 	}
 	
