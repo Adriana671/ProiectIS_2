@@ -23,7 +23,7 @@ public class UserService {
 		{
 			if(user.getVarsta() < 14 )
 			{
-				throw new VarstaPreaMica("Varsta este pre mica.");
+				throw new VarstaPreaMica("Varsta este prea mica.");
 			}
 			
 			if(user.getAdresa().matches(pattern)==false)
@@ -32,6 +32,11 @@ public class UserService {
 			}
 			
 			userRepo.insert(user);
+		}
+		catch(NullPointerException e)
+		{
+			JOptionPane.showMessageDialog(new JPanel(), "Trebuie completate toate casutele");
+
 		}
 		catch(VarstaPreaMica v)
 		{
@@ -72,6 +77,10 @@ public class UserService {
 	}
 	
 	/////findById de implementat inca 
+	public User findById(int id)
+	{
+		return userRepo.findById(id);
+	}
 	
 	public List<User> findAll()
 	{		
