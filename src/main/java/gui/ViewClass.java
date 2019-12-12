@@ -1,49 +1,21 @@
 package gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JEditorPane;
-import java.awt.BorderLayout;
-import javax.swing.JSeparator;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import javax.swing.DropMode;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.SystemColor;
-import java.awt.Window.Type;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import controller.LoginController;
 
 public class ViewClass {
 
 	private JFrame frmProiect;
 	private JTextField txtNumeMagazin;
 	private JTextField txtImagineaTaConteaza;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ViewClass window = new ViewClass();
-					window.frmProiect.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
+	private LoginController loginContr = new LoginController();
 	public ViewClass() {
 		initialize();
 	}
@@ -100,9 +72,12 @@ public class ViewClass {
 		btnNewButton.setBounds(312, 110, 132, 25);
 		frmProiect.getContentPane().add(btnNewButton);
 		
+		//btnNewButton.addActionListener(e-> loginContr.loginUser("aa", "bb"));
+		
 		JButton btnNewButton_1 = new JButton("Inregistrare");
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_1.setBounds(501, 27, 132, 32);
 		frmProiect.getContentPane().add(btnNewButton_1);
+		frmProiect.setVisible(true);
 	}
 }
