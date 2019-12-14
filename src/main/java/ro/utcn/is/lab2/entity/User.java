@@ -37,6 +37,9 @@ public class User {
 	@Column 
 	private String adresa;
 	
+	@Column 
+	private String email;
+	
 	@Column
 	private String rol;
 	
@@ -99,6 +102,14 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	
