@@ -26,7 +26,7 @@ public class UserService {
 				throw new VarstaPreaMica("Varsta este prea mica.");
 			}
 			
-			if(user.getAdresa().matches(pattern)==false)
+			if(user.getEmail().matches(pattern)==false)
 			{
 				throw new EmailIncorect("Emai-ul are un format gresit!");
 			}
