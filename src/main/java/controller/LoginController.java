@@ -1,5 +1,7 @@
 package controller;
 
+
+import javax.swing.JFrame;
 import gui.LoginFrame;
 
 public class LoginController {
@@ -9,6 +11,9 @@ public class LoginController {
 		
 		LoginFrame l = new LoginFrame();
 		l.setVisible(true);
+		
+	//	LoginFrame l = new LoginFrame();
+	//	l.setVisible(true);
 				
 	}
 }
