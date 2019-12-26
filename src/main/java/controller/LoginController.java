@@ -1,12 +1,16 @@
 package controller;
 
-import ro.utcn.is.lab2.entity.User;
+import javax.swing.JFrame;
+
+import gui.LoginFrame;
 
 public class LoginController {
 
-	public User loginUser(String username,String pass)
+	public void loginUser()
 	{
-		return null;
+		
+		LoginFrame l = new LoginFrame();
+		l.setVisible(true);
 		
 	}
 }
