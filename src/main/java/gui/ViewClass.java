@@ -80,12 +80,12 @@ public class ViewClass {
 
 		//buton de inregistrare pentru admin sau client 
 		//cand este apasat acest buton se dechide un nou frame(de tipul LoginFrame, am creat clasa) unde se va selecta login ul ca admin,client sau cont nou
-		JButton btnNewButton_1 = new JButton("Inregistrare");
+		JButton btnNewButton_1 = new JButton("Login");
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_1.setBounds(501, 27, 132, 32);
 		frmProiect.getContentPane().add(btnNewButton_1);
 		
-		//btnNewButton.addActionListener(e-> loginContr.loginUser("aa", "bb"));
+		//btnNewButton_1.addActionListener(e-> loginContr.loginUser("aa", "bb"));
 
 		//buron pentru produse noi/oferta
 		JButton btnProduseNoi_1 = new JButton("PRODUSE NOI");
