@@ -52,6 +52,7 @@ public class ViewClass {
 		txtImagineaTaConteaza.setColumns(10);
 		
 		//buton care arata toate produsele
+		//cand este actionat acest buton se deschide un new frame de tipul ProduseView unde se afiseaza toate produsele din magazin
 		JButton btnProduseNoi = new JButton("PRODUSE");
 		btnProduseNoi.setBackground(Color.BLACK);
 		btnProduseNoi.setForeground(Color.WHITE);
@@ -79,23 +80,12 @@ public class ViewClass {
 		
 
 		//buton de inregistrare pentru admin sau client 
-		//cand este apasat acest buton se dechide un nou frame(de tipul LoginFrame, am creat clasa) unde se va selecta login ul ca admin,client sau cont nou
-		JButton btnNewButton_1 = new JButton("Inregistrare");
+		//cand este apasat acest buton se deschide un npu frame de tipul LoginFrame
+		JButton btnNewButton_1 = new JButton("Login");
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_1.setBounds(501, 27, 132, 32);
 		frmProiect.getContentPane().add(btnNewButton_1);
 		
-
-		btnNewButton_1.addActionListener(e-> loginContr.loginUser());
-
-		//btnNewButton_1.addActionListener(e-> loginContr.loginUser("aa", "bb"));
-		//btnNewButton_1.addActionListener(e -> loginContr.loginUser());
-
-
-		
-		
-		
-		//buron pentru produse noi/oferta
 		JButton btnProduseNoi_1 = new JButton("PRODUSE NOI");
 		btnProduseNoi_1.setBackground(Color.BLACK);
 		btnProduseNoi_1.setForeground(Color.WHITE);
