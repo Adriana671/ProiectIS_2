@@ -2,11 +2,11 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.Cursor;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -18,6 +18,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class LoginFrame extends JFrame {
 
@@ -45,7 +47,7 @@ public class LoginFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginFrame() {
-		setTitle("Login");
+		
 		setBackground(Color.BLACK);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 674, 422);
@@ -67,6 +69,7 @@ public class LoginFrame extends JFrame {
 		contentPane.add(btnClient);
 		
 		//buton pentru a crea un nou cont
+		//cand este actionat acest buton se deschide un nou frame pentru crearea contului de tipul CreateNewAccount
 		JButton btnContNou = new JButton("CONT NOU");
 		btnContNou.setBackground(SystemColor.activeCaption);
 		btnContNou.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -99,5 +102,21 @@ public class LoginFrame extends JFrame {
 		pass.setIcon(new ImageIcon(LoginFrame.class.getResource("/passIcon1.png")));
 		pass.setBounds(170, 170, 47, 42);
 		contentPane.add(pass);
+		
+		JLabel lblX = new JLabel("X");
+		lblX.setHorizontalAlignment(SwingConstants.CENTER);
+		lblX.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblX.setForeground(Color.WHITE);
+		lblX.setBounds(628, 0, 46, 14);
+		lblX.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblX.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+			}
+		});
+		
+		contentPane.add(lblX);
+		setUndecorated(true);
 	}
 }
