@@ -2,7 +2,7 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
+import java.awt.SystemColor;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,14 +11,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
 import controller.LoginController;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.JTextPane;
-import java.awt.SystemColor;
 
 public class ViewClass {
 
@@ -85,6 +83,8 @@ public class ViewClass {
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_1.setBounds(501, 27, 132, 32);
 		frmProiect.getContentPane().add(btnNewButton_1);
+		
+		btnNewButton_1.addActionListener(e->LoginController.loginUser());
 		
 		JButton btnProduseNoi_1 = new JButton("PRODUSE NOI");
 		btnProduseNoi_1.setBackground(Color.BLACK);

@@ -1,19 +1,16 @@
 package controller;
 
 
-import javax.swing.JFrame;
+import gui.CreateNewAccount;
 import gui.LoginFrame;
 
 public class LoginController {
 
-	public void loginUser()
+	public static void loginUser()
 	{
 		
 		LoginFrame l = new LoginFrame();
 		l.setVisible(true);
 		
-	//	LoginFrame l = new LoginFrame();
-	//	l.setVisible(true);
-				
 	}
 }
