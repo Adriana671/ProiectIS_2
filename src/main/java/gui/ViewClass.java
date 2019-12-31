@@ -86,17 +86,6 @@ public class ViewClass {
 		btnNewButton_1.setBounds(501, 27, 132, 32);
 		frmProiect.getContentPane().add(btnNewButton_1);
 		
-  	    //btnNewButton_1.addActionListener(e-> loginContr.loginUser("aa", "bb"));
-
-		//buton pentru produse noi/oferta
-
-		//btnNewButton_1.addActionListener(e-> loginContr.loginUser());
-
-		//btnNewButton_1.addActionListener(e-> loginContr.loginUser("aa", "bb"));
-		//btnNewButton_1.addActionListener(e -> loginContr.loginUser());
-
-		
-		//buron pentru produse noi/oferta
 		JButton btnProduseNoi_1 = new JButton("PRODUSE NOI");
 		btnProduseNoi_1.setBackground(Color.BLACK);
 		btnProduseNoi_1.setForeground(Color.WHITE);
