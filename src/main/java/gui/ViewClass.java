@@ -86,9 +86,6 @@ public class ViewClass {
 		btnNewButton_1.setBounds(501, 27, 132, 32);
 		frmProiect.getContentPane().add(btnNewButton_1);
 		
-  	    //btnNewButton_1.addActionListener(e-> loginContr.loginUser("aa", "bb"));
-
-		//buton pentru produse noi/oferta
 		JButton btnProduseNoi_1 = new JButton("PRODUSE NOI");
 		btnProduseNoi_1.setBackground(Color.BLACK);
 		btnProduseNoi_1.setForeground(Color.WHITE);
@@ -98,6 +95,8 @@ public class ViewClass {
 		
 		
 		String imagePath = "C:\\UTCNCTI\\An 3\\IS\\ProiectFinal\\ProiectIS_2\\src\\img\\photo.jpg";
+		//String imagePath = "D:\\s1.jpg";
+
 		BufferedImage myPicture = null;
 		try {
 			myPicture = ImageIO.read(new File(imagePath));
@@ -144,6 +143,8 @@ public class ViewClass {
 		frmProiect.getContentPane().add(txtpnMagazin);
 		
 		String iconPhonePath = "C:\\UTCNCTI\\An 3\\IS\\ProiectFinal\\ProiectIS_2\\src\\img\\iconPhone.jpg";
+		//String iconPhonePath = "D:\\s1.jpg";
+
 		BufferedImage myIcon = null;
 		try {
 			myIcon = ImageIO.read(new File(iconPhonePath));
