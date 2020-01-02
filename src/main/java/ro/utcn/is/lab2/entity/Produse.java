@@ -25,6 +25,9 @@ public class Produse {
 	private String denumireProdus;
 	
 	@Column 
+	private String categorieProdus;
+	
+	@Column 
 	private String descriereProdus;
 	
 	@Column
@@ -74,6 +77,15 @@ public class Produse {
 
 	public float getPretProdus() {
 		return pretProdus;
+	}
+	
+
+	public String getCategorieProdus() {
+		return categorieProdus;
+	}
+
+	public void setCategorieProdus(String categorieProdus) {
+		this.categorieProdus = categorieProdus;
 	}
 
 	public void setPretProdus(float pretProdus) {
