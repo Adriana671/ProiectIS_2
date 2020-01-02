@@ -68,14 +68,6 @@ public class LoginFrame extends JFrame {
 		btnClient.setBounds(276, 244, 89, 23);
 		contentPane.add(btnClient);
 		
-		//buton pentru a crea un nou cont
-		//cand este actionat acest buton se deschide un nou frame pentru crearea contului de tipul CreateNewAccount
-		JButton btnContNou = new JButton("CONT NOU");
-		btnContNou.setBackground(SystemColor.activeCaption);
-		btnContNou.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnContNou.setBounds(227, 300, 208, 23);
-		contentPane.add(btnContNou);
-		
 		JTextPane txtpnInregistrareCa = new JTextPane();
 		txtpnInregistrareCa.setFont(new Font("Sitka Subheading", Font.BOLD, 26));
 		txtpnInregistrareCa.setBackground(Color.BLACK);

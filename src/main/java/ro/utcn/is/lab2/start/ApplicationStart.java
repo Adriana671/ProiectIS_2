@@ -1,9 +1,6 @@
  package ro.utcn.is.lab2.start;
 
 
-
-
-
 import gui.ViewClass;
 import ro.utcn.is.lab2.entity.User;
 import ro.utcn.is.lab2.repository.UserRepo;
