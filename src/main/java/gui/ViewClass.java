@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
+import controller.CreateUserController;
 import controller.LoginController;
 
 public class ViewClass {
@@ -103,6 +104,8 @@ public class ViewClass {
 		btnCreateNewAccount.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnCreateNewAccount.setBounds(29, 270, 173, 32);
 		frmProiect.getContentPane().add(btnCreateNewAccount);
+		
+		btnCreateNewAccount.addActionListener(e->CreateUserController.createAcc());
 		
 		JButton btnLoginAdmin = new JButton("Log in admin");
 		btnLoginAdmin.setFont(new Font("Times New Roman", Font.BOLD, 14));

@@ -68,6 +68,8 @@ public class LoginFrame extends JFrame {
 		btnClient.setBounds(276, 244, 89, 23);
 		contentPane.add(btnClient);
 		
+		
+		
 		JTextPane txtpnInregistrareCa = new JTextPane();
 		txtpnInregistrareCa.setFont(new Font("Sitka Subheading", Font.BOLD, 26));
 		txtpnInregistrareCa.setBackground(Color.BLACK);
@@ -86,12 +88,12 @@ public class LoginFrame extends JFrame {
 		contentPane.add(passwordField);
 		
 		JLabel user = new JLabel("New label");
-		user.setIcon(new ImageIcon(LoginFrame.class.getResource("/profileIcon.png")));
+		//user.setIcon(new ImageIcon(LoginFrame.class.getResource("/profileIcon.png")));
 		user.setBounds(180, 123, 37, 42);
 		contentPane.add(user);
 		
 		JLabel pass = new JLabel("New label");
-		pass.setIcon(new ImageIcon(LoginFrame.class.getResource("/passIcon1.png")));
+		//pass.setIcon(new ImageIcon(LoginFrame.class.getResource("/passIcon1.png")));
 		pass.setBounds(170, 170, 47, 42);
 		contentPane.add(pass);
 		

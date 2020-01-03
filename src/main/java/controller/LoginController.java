@@ -1,7 +1,7 @@
 package controller;
 
 
-import gui.CreateNewAccount;
+import gui.ClientFrame;
 import gui.LoginFrame;
 
 public class LoginController {
@@ -13,4 +13,13 @@ public class LoginController {
 		l.setVisible(true);
 		
 	}
+	
+	public static void userFrame()
+	{
+		
+		ClientFrame cf = new ClientFrame();
+		cf.setVisible(true);
+		
+	}
+	
 }

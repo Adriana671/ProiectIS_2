@@ -1,23 +1,23 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.Cursor;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.SwingConstants;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
+
+import controller.CreateUserController;
 
 public class CreateNewAccount extends JFrame {
 
@@ -126,6 +126,9 @@ public class CreateNewAccount extends JFrame {
 		btnCreare.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnCreare.setBounds(126, 298, 169, 26);
 		contentPane.add(btnCreare);
+		
+		
+		btnCreare.addActionListener(e->CreateUserController.createUser(textField.getText(),textField_1.getText(),Integer.parseInt(textField_2.getText()),textField_3.getText(), passwordField.getText()));
 		
 		lblX.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
