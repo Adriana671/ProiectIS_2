@@ -19,6 +19,8 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import controller.AdminController;
+
 public class CreateAdminFrame extends JFrame {
 
 	private JPanel contentPane;
@@ -138,6 +140,8 @@ public class CreateAdminFrame extends JFrame {
 		btnCreare.setBounds(126, 298, 169, 26);
 		contentPane.add(btnCreare);
 		
+		btnCreare.addActionListener(e->AdminController.createAdm(textField.getText(), textField_1.getText(), Integer.parseInt(textField_2.getText()),textField_3.getText(),passwordField.getText()));
+		
 		lblX.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JTextPane txtpnEmail = new JTextPane();
@@ -163,4 +167,5 @@ public class CreateAdminFrame extends JFrame {
 		setUndecorated(true);
 	}
 
+	
 }

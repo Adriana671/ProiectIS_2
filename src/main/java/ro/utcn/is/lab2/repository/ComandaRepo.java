@@ -51,7 +51,7 @@ public class ComandaRepo {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		//Produse prod = entityManager.find(Produse.class, id);
 		entityManager.getTransaction().begin();
-		entityManager.remove(com);
+		entityManager.remove(entityManager.contains(com) ? com : entityManager.merge(com));
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}

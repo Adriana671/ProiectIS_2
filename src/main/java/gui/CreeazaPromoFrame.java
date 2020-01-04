@@ -7,6 +7,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.ProduseController;
+
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -105,6 +108,8 @@ public class CreeazaPromoFrame extends JFrame {
 		btnOk.setBounds(158, 229, 114, 37);
 		contentPane.add(btnOk);
 		
+		btnOk.addActionListener(e->ProduseController.addPromo(Integer.parseInt(textField_2.getText())));
+		
 		lblX = new JLabel("X");
 		lblX.setHorizontalAlignment(SwingConstants.CENTER);
 		lblX.setForeground(SystemColor.text);
@@ -130,6 +135,30 @@ public class CreeazaPromoFrame extends JFrame {
 		contentPane.add(txtpnCreeazaPromotie);
 		
 		setUndecorated(true);
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+
+	public JTextField getTextField_1() {
+		return textField_1;
+	}
+
+	public void setTextField_1(JTextField textField_1) {
+		this.textField_1 = textField_1;
+	}
+
+	public JTextField getTextField_2() {
+		return textField_2;
+	}
+
+	public void setTextField_2(JTextField textField_2) {
+		this.textField_2 = textField_2;
 	}
 
 }

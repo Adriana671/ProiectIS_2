@@ -55,28 +55,11 @@ public class UserService {
 	
 	public void deleteUser(User user)
 	{
-		List us = userRepo.findAll();
-		try {
-			if(us.contains(user))
-				{
-					System.out.println("se sterge user");
-					userRepo.delete(user);
-				}
-				else
-				{
-					System.out.println("nu exista user");
-
-					throw new UserInexistent("Userul nu mai exista!");
-				}
-		}catch (UserInexistent i)
-		{
-			JOptionPane.showMessageDialog(new JPanel(), "Userul nu mai exista");
-		}
 		
+		userRepo.delete(user);		
 		
 	}
 	
-	/////findById de implementat inca 
 	public User findById(int id)
 	{
 		return userRepo.findById(id);

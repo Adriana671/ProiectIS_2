@@ -61,7 +61,7 @@ public class UserRepo {
 		/// EXCEPTIE DE PRINS DACA NU SE GASESTE USERU-UL, 
 		/// IN NIVELUL URAMTOR --> SERVICE
 		entityManager.getTransaction().begin();
-		entityManager.remove(user);
+		entityManager.remove(entityManager.contains(user) ? user : entityManager.merge(user));
 		entityManager.getTransaction().commit();
 		entityManager.close();
 		

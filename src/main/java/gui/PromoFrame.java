@@ -11,10 +11,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+
+import controller.ProduseController;
+
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -45,6 +49,9 @@ public class PromoFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	private JTable table;
+	private int row,column;
+	private DefaultTableModel tbModel = new DefaultTableModel();
 	public PromoFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 508, 398);
@@ -64,27 +71,57 @@ public class PromoFrame extends JFrame {
 	         { null, null, null,null,null },
 	         { null, null, null,null,null },
 	      };
-	    String[] header = { "Denumire", "Categorie", "Descriere","Cantitate","Pret" };
+	    String[] header = { "Id","Denumire", "Categorie", "Descriere","Cantitate","Pret" };
 	    panel.setLayout(null);
-	    JTable table = new JTable(rec, header);
+	    table = new JTable(rec, header);
 	    table.setBackground(SystemColor.info);
 	    table.setModel(new DefaultTableModel(
 	    	new Object[][] {
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
 	    	},
 	    	new String[] {
-	    		"Denumire", "Categorie", "Descriere", "Cantitate", "Pret"
+	    		"Id","Denumire", "Categorie", "Descriere", "Cantitate", "Pret"
 	    	}
 	    ));
+	    
+	    table.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+	    	    if (e.getClickCount() == 1) {
+	    	    	row = table.getSelectedRow();
+	    	    	column=table.getSelectedColumn();
+	    	    	System.out.println(table.getValueAt(row, column));
+	    	     // do some stuff
+	    	    }
+	    	  }
+
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+	    
+	    });
+	    tbModel = (DefaultTableModel) table.getModel();    
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    scrollPane.setBounds(30, 71, 440, 197);
 	    panel.add(scrollPane);
@@ -96,6 +133,8 @@ public class PromoFrame extends JFrame {
 	    btnAdaugaInCos.setForeground(SystemColor.activeCaptionText);
 	    btnAdaugaInCos.setBounds(187, 296, 145, 32);
 	    panel.add(btnAdaugaInCos);
+	    
+	    btnAdaugaInCos.addActionListener(e->ProduseController.adaugaInCos((int)table.getValueAt(row, 0)));
 	    
 	    JLabel lblX = new JLabel("X");
 	    lblX.setHorizontalAlignment(SwingConstants.CENTER);
@@ -118,5 +157,17 @@ public class PromoFrame extends JFrame {
 		});
 	    panel.add(lblPromotii);
 	    setUndecorated(true);
+	}
+	public DefaultTableModel getTbModel() {
+		return tbModel;
+	}
+	public void setTbModel(DefaultTableModel tbModel) {
+		this.tbModel = tbModel;
+	}
+	public JTable getTable() {
+		return table;
+	}
+	public void setTable(JTable table) {
+		this.table = table;
 	}
 }
