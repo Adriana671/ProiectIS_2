@@ -49,9 +49,8 @@ public class ProduseRepo {
 	public void deleteProdus(Produse prod)
 	{
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		//Produse prod = entityManager.find(Produse.class, id);
 		entityManager.getTransaction().begin();
-		entityManager.remove(prod);
+		entityManager.remove(entityManager.contains(prod) ? prod : entityManager.merge(prod));
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
@@ -59,7 +58,6 @@ public class ProduseRepo {
 	public void updateProdus(Produse prod)
 	{
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-
 		entityManager.getTransaction().begin();
 		entityManager.merge(prod);
 		entityManager.getTransaction().commit();

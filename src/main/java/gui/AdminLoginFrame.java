@@ -20,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 import controller.LoginController;
 
-public class LoginFrame extends JFrame {
+public class AdminLoginFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -45,8 +45,9 @@ public class LoginFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LoginFrame() {
+	public AdminLoginFrame() {
 		
+		setTitle("Login Admin");
 		setBackground(Color.BLACK);
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 674, 422);
@@ -64,7 +65,7 @@ public class LoginFrame extends JFrame {
 		btnClient.setBounds(276, 244, 89, 23);
 		contentPane.add(btnClient);
 		
-		btnClient.addActionListener(e->LoginController.userFrame(textField.getText(),passwordField.getText()));
+		btnClient.addActionListener(e->LoginController.adminFrame(textField.getText(),passwordField.getText()));
 		
 		JTextPane txtpnInregistrareCa = new JTextPane();
 		txtpnInregistrareCa.setFont(new Font("Sitka Subheading", Font.BOLD, 26));

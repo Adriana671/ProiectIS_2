@@ -9,6 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.ProduseController;
+
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -142,6 +145,8 @@ public class AdaugareProdusFrame extends JFrame {
 		btnAdauga.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		btnAdauga.setBounds(136, 294, 117, 28);
 		contentPane.add(btnAdauga);
+		
+		btnAdauga.addActionListener(e->ProduseController.addProdus(textField.getText(), textField_1.getText(), textField_2.getText(),Integer.parseInt(textField_3.getText()),Integer.parseInt(textField_4.getText())));
 		
 		JLabel lblX = new JLabel("X");
 		lblX.setHorizontalAlignment(SwingConstants.CENTER);

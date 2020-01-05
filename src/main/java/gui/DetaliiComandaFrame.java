@@ -4,27 +4,26 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
-
+import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JTextPane;
-import java.awt.Font;
-import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
+import javax.swing.table.DefaultTableModel;
+
+import controller.ProduseController;
 
 public class DetaliiComandaFrame extends JFrame {
 
@@ -50,6 +49,8 @@ public class DetaliiComandaFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	private JTable table;
+	DefaultTableModel tbModel;
 	public DetaliiComandaFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 508, 411);
@@ -62,34 +63,21 @@ public class DetaliiComandaFrame extends JFrame {
 	    panel.setForeground(Color.WHITE);
 	    panel.setBackground(Color.BLACK);
 	    String[][] rec = {
-	         { null, null, null,null,null },
-	         { null, null, null,null,null },
-	         { null, null, null,null,null },
-	         { null, null, null,null,null },
-	         { null, null, null,null,null },
-	         { null, null, null,null,null },
 	      };
-	    String[] header = { "Denumire", "Categorie", "Descriere","Cantitate","Pret" };
+	    String[] header = { "Id","Denumire", "Categorie", "Descriere","Cantitate","Pret" };
 	    panel.setLayout(null);
-	    JTable table = new JTable(rec, header);
+	    table = new JTable(rec, header);
 	    table.setBackground(SystemColor.info);
 	    table.setModel(new DefaultTableModel(
 	    	new Object[][] {
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
-	    		{null, null, null, null, null},
 	    	},
 	    	new String[] {
-	    		"Denumire", "Categorie", "Descriere", "Cantitate", "Pret"
+	    		"Id","Denumire", "Categorie", "Descriere", "Cantitate", "Pret"
 	    	}
 	    ));
+	    
+	    tbModel=(DefaultTableModel) table.getModel();
+	    
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    scrollPane.setBounds(47, 77, 395, 138);
 	    panel.add(scrollPane);
@@ -117,7 +105,7 @@ public class DetaliiComandaFrame extends JFrame {
 	    panel.add(txtpnAdresa);
 	    
 	    txtAiciETextfield = new JTextField();
-	    txtAiciETextfield.setText("aici e textField, si o sa punem adresa ");
+	    txtAiciETextfield.setText(" ");
 	    txtAiciETextfield.setForeground(SystemColor.text);
 	    txtAiciETextfield.setBackground(SystemColor.activeCaptionText);
 	    txtAiciETextfield.setBounds(173, 269, 219, 60);
@@ -130,6 +118,8 @@ public class DetaliiComandaFrame extends JFrame {
 	    btnFinali.setFont(new Font("Tahoma", Font.BOLD, 13));
 	    btnFinali.setBounds(154, 340, 167, 28);
 	    panel.add(btnFinali);
+	    
+	    btnFinali.addActionListener(e->ProduseController.finalizareComanda((String)comboBox.getSelectedItem()));
 	    
 	    JLabel lblX = new JLabel("X");
 	    lblX.setHorizontalAlignment(SwingConstants.CENTER);
@@ -155,5 +145,22 @@ public class DetaliiComandaFrame extends JFrame {
 	    panel.add(txtpnDetaliiDespreComanda);
 	    
 	    setUndecorated(true);
+	}
+	
+	public JTable getTable()
+	{
+		return table;
+	}
+
+	public DefaultTableModel getTbModel() {
+		return tbModel;
+	}
+
+	public void setTbModel(DefaultTableModel tbModel) {
+		this.tbModel = tbModel;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
 	}
 }

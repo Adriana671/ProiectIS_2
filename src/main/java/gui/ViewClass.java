@@ -112,6 +112,8 @@ public class ViewClass {
 		btnLoginAdmin.setBounds(457, 269, 162, 32);
 		frmProiect.getContentPane().add(btnLoginAdmin);
 		
+		btnLoginAdmin.addActionListener(e->LoginController.loginAdmin());
+		
 		JLabel lblX = new JLabel("X");
 		lblX.setHorizontalAlignment(SwingConstants.CENTER);
 		lblX.setForeground(SystemColor.text);

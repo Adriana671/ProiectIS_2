@@ -34,7 +34,7 @@ public class Produse {
 	private int cantitateProdus;
 	
 	@Column
-	private float pretProdus;
+	private int pretProdus;
 	
 	@ManyToMany
 	@JoinTable(
@@ -75,7 +75,7 @@ public class Produse {
 		this.cantitateProdus = cantitateProdus;
 	}
 
-	public float getPretProdus() {
+	public int getPretProdus() {
 		return pretProdus;
 	}
 	
@@ -88,7 +88,7 @@ public class Produse {
 		this.categorieProdus = categorieProdus;
 	}
 
-	public void setPretProdus(float pretProdus) {
+	public void setPretProdus(int pretProdus) {
 		this.pretProdus = pretProdus;
 	}
 

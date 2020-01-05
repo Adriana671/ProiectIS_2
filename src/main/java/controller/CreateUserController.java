@@ -1,12 +1,18 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import gui.CreateNewAccount;
+import gui.GestioneazaClientiFrame;
 import ro.utcn.is.lab2.entity.User;
 import ro.utcn.is.lab2.service.UserService;
 
 public class CreateUserController {
 	
 	private static UserService service = new UserService();
+    private static GestioneazaClientiFrame gf = new GestioneazaClientiFrame();
+
 	
 	public static void createAcc()
 	{
@@ -26,6 +32,14 @@ public class CreateUserController {
 		us1.setPassword(pass);
 		us1.setRol("Client");
 		service.insertUser(us1);
+		
+		List<User> users = new ArrayList<>();
+		users = service.findAll();
+		
+		for (User p1: users)
+		{
+			gf.getTbModel().addRow(new Object[] {p1.getId(), p1.getName(), p1.getVarsta(),p1.getAdresa(),p1.getEmail()});
+		}
 		
 	}
 

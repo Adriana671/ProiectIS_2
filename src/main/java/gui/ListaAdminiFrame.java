@@ -47,6 +47,7 @@ public class ListaAdminiFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	private DefaultTableModel tbModel = new DefaultTableModel();
 	public ListaAdminiFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 508, 411);
@@ -72,19 +73,15 @@ public class ListaAdminiFrame extends JFrame {
 	    table.setBackground(SystemColor.info);
 	    table.setModel(new DefaultTableModel(
 	    	new Object[][] {
-	    		{null, null},
-	    		{null, null},
-	    		{null, null},
-	    		{null, null},
-	    		{null, null},
-	    		{null, null},
-	    		{null, null},
-	    		{null, null},
 	    	},
 	    	new String[] {
 	    		"Nume", "Email"
 	    	}
 	    ));
+	    
+	    tbModel = (DefaultTableModel) table.getModel();
+	    
+	    
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    scrollPane.setBounds(59, 169, 395, 138);
 	    panel.add(scrollPane);
@@ -115,6 +112,12 @@ public class ListaAdminiFrame extends JFrame {
 	    
 	    
 	    setUndecorated(true);
+	}
+	public DefaultTableModel getTbModel() {
+		return tbModel;
+	}
+	public void setTbModel(DefaultTableModel tbModel) {
+		this.tbModel = tbModel;
 	}
 
 }

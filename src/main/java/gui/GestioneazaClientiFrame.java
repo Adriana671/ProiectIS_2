@@ -12,9 +12,13 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import controller.AdminController;
+import controller.CreateUserController;
+
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -46,6 +50,9 @@ public class GestioneazaClientiFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	private JTable table;
+	private DefaultTableModel tbModel = new DefaultTableModel();
+	private int row,column;
 	public GestioneazaClientiFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 668, 369);
@@ -66,25 +73,57 @@ public class GestioneazaClientiFrame extends JFrame {
 	         { null, null, null,null,null },
 	         { null, null, null,null,null },
 	      };
-	    String[] header = { "Nume", "Varsta", "Adresa","Email"};
+	    String[] header = { "Id","Nume", "Varsta", "Adresa","Email"};
 	    panel.setLayout(null);
-	    JTable table = new JTable(rec, header);
+	    table = new JTable(rec, header);
 	    table.setBackground(SystemColor.info);
 	    table.setModel(new DefaultTableModel(
 	    	new Object[][] {
-	    		{null, null, null, null},
-	    		{null, null, null, null},
-	    		{null, null, null, null},
-	    		{null, null, null, null},
-	    		{null, null, null, null},
-	    		{null, null, null, null},
-	    		{null, null, null, null},
-	    		{null, null, null, null},
 	    	},
 	    	new String[] {
-	    		"Nume", "Varsta", "Adresa", "Email"
+	    		"Id","Nume", "Varsta", "Adresa", "Email"
 	    	}
 	    ));
+	    
+	    table.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+	    	    if (e.getClickCount() == 1) {
+	    	    	row = table.getSelectedRow();
+	    	    	column=table.getSelectedColumn();
+	    	    	System.out.println(table.getValueAt(row, column));
+	    	    }
+	    	  }
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+	    
+	    });
+	    tbModel = (DefaultTableModel) table.getModel();    
+
+	    
+	    
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    scrollPane.setBounds(10, 104, 369, 144);
 	    panel.add(scrollPane);
@@ -96,17 +135,23 @@ public class GestioneazaClientiFrame extends JFrame {
 	    btnAdaugaClient.setForeground(SystemColor.textText);
 	    panel.add(btnAdaugaClient);
 	    
+	    btnAdaugaClient.addActionListener(e->CreateUserController.createAcc());
+	    
 	    JButton btnStergeClient = new JButton("Sterge client");
 	    btnStergeClient.setBounds(468, 171, 120, 33);
 	    btnStergeClient.setBackground(SystemColor.controlHighlight);
 	    btnStergeClient.setForeground(SystemColor.textText);
 	    panel.add(btnStergeClient);
 	    
+	    btnStergeClient.addActionListener(e->AdminController.stergeClient((int)table.getValueAt(row, 0)));
+	    
 	    JButton btnModificaClient = new JButton("Modifica client");
 	    btnModificaClient.setBounds(468, 235, 120, 33);
 	    btnModificaClient.setBackground(SystemColor.controlHighlight);
 	    btnModificaClient.setForeground(SystemColor.textText);
 	    panel.add(btnModificaClient);
+	    
+	    btnModificaClient.addActionListener(e->AdminController.modifClient((int)table.getValueAt(row, 0)));
 	    
 	    JLabel lblX = new JLabel("X");
 	    lblX.setBounds(618, 0, 46, 14);
@@ -131,6 +176,18 @@ public class GestioneazaClientiFrame extends JFrame {
 	    panel.add(txtpnGestionareClienti);
 	    
 	    setUndecorated(true);
+	}
+	public DefaultTableModel getTbModel() {
+		return tbModel;
+	}
+	public void setTbModel(DefaultTableModel tbModel) {
+		this.tbModel = tbModel;
+	}
+	public JTable getTable() {
+		return table;
+	}
+	public void setTable(JTable table) {
+		this.table = table;
 	}
 
 }
