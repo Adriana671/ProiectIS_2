@@ -21,11 +21,11 @@ public class ApplicationStart {
 
 		 */
 
-		  UserRepo ur = new UserRepo(); 
+		//  UserRepo ur = new UserRepo(); 
 
-		  User user = new User(); 
+		//  User user = new User(); 
 
-		  user.setName("Jimmy");
+		//  user.setName("Jimmy");
 
 		  //ur.insert(user);
 
