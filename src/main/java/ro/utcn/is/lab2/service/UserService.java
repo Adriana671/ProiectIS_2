@@ -32,6 +32,8 @@ public class UserService {
 			}
 			
 			userRepo.insert(user);
+			JOptionPane.showMessageDialog(new JPanel(), "Cont creat cu succes!");
+
 		}
 		catch(NullPointerException e)
 		{
@@ -57,6 +59,8 @@ public class UserService {
 	{
 		
 		userRepo.delete(user);		
+		JOptionPane.showMessageDialog(new JPanel(), "Cont user sters cu succes!");
+
 		
 	}
 	
@@ -73,6 +77,8 @@ public class UserService {
 	public void updateUser(User us)
 	{
 		userRepo.updateUser(us);
+		JOptionPane.showMessageDialog(new JPanel(), "Info user modificate!");
+
 	}
 
 }

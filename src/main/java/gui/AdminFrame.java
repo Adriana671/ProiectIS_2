@@ -219,15 +219,11 @@ public class AdminFrame extends JFrame {
 		contentPane.add(btnVeziAdmini);
 		setUndecorated(true);
 	}
-	public DefaultTableModel getTable()
-	{
-		return tbModel;
-	}
-
-	public JTable tb()
+	public JTable getTable()
 	{
 		return table;
 	}
+
 	public DefaultTableModel getTbModel() {
 		return tbModel;
 	}

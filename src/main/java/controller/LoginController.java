@@ -65,7 +65,7 @@ public class LoginController {
 								
 								for (Produse p1:pr)
 								{
-									af.getTable().addRow(new Object[] {p1.getId(),p1.getDenumireProdus(), p1.getCategorieProdus(), p1.getDescriereProdus(),p1.getCantitateProdus(), p1.getPretProdus()});
+									af.getTbModel().addRow(new Object[] {p1.getId(),p1.getDenumireProdus(), p1.getCategorieProdus(), p1.getDescriereProdus(),p1.getCantitateProdus(), p1.getPretProdus()});
 								}
 							}
 							
