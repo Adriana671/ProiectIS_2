@@ -13,26 +13,13 @@ import ro.utcn.is.lab2.repository.ComandaRepo;
 public class ComandaService {
 
 	private ComandaRepo cp = new ComandaRepo();
-	private int cantitateDorita;
 	
 	public void insertComanda(Comanda com)
 	{
-		try {
-			/// sa se verifice la fiecare produs pe rand, altfel cantotateaDorita ramane la fel, a ultimului produs
-			for(Produse p : com.getProduse())
-			{
-				if (p.getCantitateProdus()<cantitateDorita)
-				{
-					throw new StocMic("Nu exista atatea produse pe stoc.");
-				}
-			}
+
 			cp.insert(com);
-		}
-		
-		catch(StocMic s)
-		{
-			JOptionPane.showMessageDialog(new JPanel(),"Nu exista atatea produse pe stoc.");
-		}
+			JOptionPane.showMessageDialog(new JPanel(),"Comanda efectuata cu succes!");
+
 	}
 	
 	public List<Comanda> findAll()

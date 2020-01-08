@@ -29,6 +29,8 @@ public class ProduseService {
 				throw new PretNegativ("Un produs nu poate avea pret negativ.");
 			}
 			pr.insert(prod);
+			JOptionPane.showMessageDialog(new JPanel(), "Produs adaugat cu succes!");
+
 		}
 		catch(NullPointerException e)
 		{
@@ -57,10 +59,14 @@ public class ProduseService {
 	public void deleteProdus(Produse prod)
 	{
 		pr.deleteProdus(prod);
+		JOptionPane.showMessageDialog(new JPanel(), "Produs sters cu succes!");
+
 	}
 	
 	public void updateProdus(Produse prod)
 	{
-		pr.updateProdus(prod);	
+		pr.updateProdus(prod);
+		JOptionPane.showMessageDialog(new JPanel(), "Produs modificat!");
+
 	}
 }

@@ -84,7 +84,7 @@ public class ProduseController {
 		for(Produse p1: produseCos)
 		{
 			System.out.println(p1.getPretProdus());
-			detCom.getTbModel().addRow(new Object[] {p1.getId(),p1.getDenumireProdus(), p1.getCategorieProdus(), p1.getDescriereProdus(),p1.getCantitateProdus(), p1.getPretProdus()});
+			pf.getTbModel().addRow(new Object[] {p1.getId(),p1.getDenumireProdus(), p1.getCategorieProdus(), p1.getDescriereProdus(),p1.getCantitateProdus(), p1.getPretProdus()});
 
 		}
 		pf.setVisible(true);
@@ -101,19 +101,13 @@ public class ProduseController {
 		List<Produse> pr = new ArrayList<>();
 		pr = ps.findAll();
 		
-		int rowCount = af.getTable().getRowCount();
-		for (int i=rowCount-1; i>=0;i--)
-		{
-			af.getTable().removeRow(i);
-		}
-
-			DefaultTableModel md = new DefaultTableModel();
+		DefaultTableModel md = new DefaultTableModel();
 		
 		for (Produse p1:pr)
 		{
 			md.addRow(new Object[] {p1.getId(),p1.getDenumireProdus(), p1.getCategorieProdus(), p1.getDescriereProdus(),p1.getCantitateProdus(), p1.getPretProdus()});
 		}
-			af.setTbModel(md);
+			af.getTable().setModel(md);
 
 		//af.getTable().fireTableDataChanged();
 
@@ -137,19 +131,14 @@ public class ProduseController {
 		
 		ps.insertProdus(p);
 		
-		int rowCount = af.getTable().getRowCount();
-		for (int i=rowCount-1; i>=0;i--)
-		{
-			af.getTable().removeRow(i);
-		}
-		af.tb().revalidate();
+
 
 		//actualizare tabel
 		List<Produse> pr = new ArrayList<>();
 		pr = ps.findAll();
 		for (Produse p1:pr)
 		{
-			af.getTable().addRow(new Object[] {p1.getId(),p1.getDenumireProdus(), p1.getCategorieProdus(), p1.getDescriereProdus(),p1.getCantitateProdus(), p1.getPretProdus()});
+			af.getTbModel().addRow(new Object[] {p1.getId(),p1.getDenumireProdus(), p1.getCategorieProdus(), p1.getDescriereProdus(),p1.getCantitateProdus(), p1.getPretProdus()});
 			
 		}
 		
@@ -183,19 +172,19 @@ public class ProduseController {
 		
 		ps.updateProdus(p);
 		
-		int rowCount = af.getTable().getRowCount();
-		for (int i=rowCount-1; i>=0;i--)
-		{
-			af.getTable().removeRow(i);
-		}
-		af.tb().revalidate();
-		
 		List<Produse> pr = new ArrayList<>();
 		pr = ps.findAll();
+		
+		
+		DefaultTableModel tm = new DefaultTableModel();
 		for (Produse p1:pr)
 		{
-			af.getTable().addRow(new Object[] {p1.getId(),p1.getDenumireProdus(), p1.getCategorieProdus(), p1.getDescriereProdus(),p1.getCantitateProdus(), p1.getPretProdus()});
+			System.out.println(p1.getDenumireProdus());
+			tm.addRow(new Object[] {p1.getId(),p1.getDenumireProdus(), p1.getCategorieProdus(), p1.getDescriereProdus(),p1.getCantitateProdus(), p1.getPretProdus()});
+			//af.getTable().addRow(new Object[] {p1.getId(),p1.getDenumireProdus(), p1.getCategorieProdus(), p1.getDescriereProdus(),p1.getCantitateProdus(), p1.getPretProdus()});
 		}
+		
+		af.getTable().setModel(tm);
 		
 		
 	}
@@ -235,9 +224,6 @@ public class ProduseController {
 	public static void addPromo(int pretNou)
 	{
 		Produse promo = ps.findById(idPromo);
-		CreeazaPromoFrame prf = new CreeazaPromoFrame();
-
-		
 		try 
 		{
 			promo.setPretProdus(pretNou);
@@ -260,7 +246,7 @@ public class ProduseController {
 		}
 		catch(NullPointerException e)
 		{
-			JOptionPane.showMessageDialog(new JPanel(), "Userul nu mai exista");
+			JOptionPane.showMessageDialog(new JPanel(), "Trebuie completate toate casutele!");
 		}
 		catch(NumberFormatException e)
 		{
